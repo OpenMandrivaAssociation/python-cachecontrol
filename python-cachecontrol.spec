@@ -1,6 +1,6 @@
 Summary:	An implementation of httplib2 caching for requests in Python
 Name:		python-cachecontrol
-Version:	0.14.0
+Version:	0.14.1
 Release:	1
 License:	MIT
 Group:		Development/Python
