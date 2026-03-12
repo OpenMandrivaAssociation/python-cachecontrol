@@ -1,16 +1,20 @@
-Summary:	An implementation of httplib2 caching for requests in Python
+%define module cachecontrol
+
 Name:		python-cachecontrol
-Version:	0.14.1
-Release:	2
+Summary:	An implementation of httplib2 caching for requests in Python
+Version:	0.14.4
+Release:	1
 License:	MIT
 Group:		Development/Python
 URL:		https://pypi.org/project/cachecontrol/
-Source0:	https://files.pythonhosted.org/packages/source/C/CacheControl/cachecontrol-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/c/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildSystem:	python
+BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pip)
-BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(uv-build)
 BuildRequires:	python%{pyver}dist(wheel)
-BuildArch:	noarch
 
 %description
 CacheControl is a port of the caching algorithms in httplib2 for use with
@@ -24,18 +28,5 @@ terms of caching.
 %doc README.rst
 %license LICENSE.txt
 %{_bindir}/doesitcache
-#%%{_bindir}/cachecontrol
-%{py_sitedir}/cachecontrol
-%{py_sitedir}/cachecontrol-*.*-info
-
-#--------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n cachecontrol-%{version}
-
-%build
-%py_build
-
-%install
-%py_install
-
+%{py_sitedir}/%{module}
+%{py_sitedir}/%{module}-%{version}.dist-info
