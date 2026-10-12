@@ -20,13 +20,13 @@ BuildRequires:	python%{pyver}dist(wheel)
 CacheControl is a port of the caching algorithms in httplib2 for use with
 requests session object.
 
-%prep -a
-# Packaged uv-build is 0.11, which is outside this release's upper bound.
-sed -i 's/uv_build>=0.9.6,<0.10.0/uv_build>=0.9.6/' pyproject.toml
-
 It was written because httplib2’s better support for caching is often
 mitigated by its lack of thread safety. The same is true of requests in
 terms of caching.
+
+%prep -a
+# Packaged uv-build is 0.11, which is outside this release's upper bound.
+sed -i 's/uv_build>=0.9.6,<0.10.0/uv_build>=0.9.6/' pyproject.toml
 
 %files
 %doc README.rst
